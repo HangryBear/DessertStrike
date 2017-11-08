@@ -1,4 +1,4 @@
-#Dessert Strike
+# Dessert Strike
 
 A game loosely based on Desert Strike, but with a dessert based theme (still to be developed).
 
