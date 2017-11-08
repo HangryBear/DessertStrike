@@ -4,10 +4,56 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sounds name="sound">
+    <sound>sound\snd_Explosion1</sound>
+    <sound>sound\snd_Explosion2</sound>
+  </sounds>
+  <sprites name="sprites">
+    <sprite>sprites\spr_Island1</sprite>
+    <sprite>sprites\spr_Island2</sprite>
+    <sprite>sprites\spr_Island3</sprite>
+    <sprite>sprites\spr_MyPlane</sprite>
+    <sprite>sprites\spr_Player_Bullet</sprite>
+    <sprite>sprites\spr_Enemy1</sprite>
+    <sprite>sprites\spr_Enemy2</sprite>
+    <sprite>sprites\spr_Explosion1</sprite>
+    <sprite>sprites\spr_Explosion2</sprite>
+    <sprite>sprites\spr_HUD</sprite>
+    <sprite>sprites\spr_Lives</sprite>
+    <sprite>sprites\spr_Enemy_Bullet</sprite>
+    <sprite>sprites\spr_Enemy_Bullet2</sprite>
+    <sprite>sprites\spr_Enemy3</sprite>
+    <sprite>sprites\spr_Enemy4</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\bck_Water</background>
+  </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_Control</object>
+    <object>objects\obj_Island1</object>
+    <object>objects\obj_Island2</object>
+    <object>objects\obj_Island3</object>
+    <object>objects\obj_MyPlane</object>
+    <object>objects\obj_Player_Bullet</object>
+    <object>objects\obj_Explosion1</object>
+    <object>objects\obj_Explosion2</object>
+    <object>objects\obj_Enemy1</object>
+    <object>objects\obj_Enemy2</object>
+    <object>objects\obj_Enemy3</object>
+    <object>objects\obj_Enemy4</object>
+    <object>objects\obj_Enemy_Bullet1</object>
+    <object>objects\obj_Enemy_Bullet2</object>
+  </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tml_Formation1</timeline>
+  </timelines>
+  <rooms name="rooms">
+    <room>rooms\rm_MainGame</room>
+  </rooms>
+  <constants number="1">
+    <constant name="EnemyPlaneSpeed">2</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
