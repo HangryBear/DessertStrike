@@ -29,6 +29,9 @@
     <background>background\bck_Water</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_Control</object>
     <object>objects\obj_Island1</object>

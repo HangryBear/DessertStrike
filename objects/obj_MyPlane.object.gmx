@@ -124,8 +124,9 @@ if keyboard_check(vk_up){
 }
 
 if keyboard_check(vk_down){
-    if (speed &gt; 0){
-        motion_add(image_angle+90,-0.2)
+    if (speed &gt;= 0){
+        speed -= 0.2
+        //motion_add(image_angle+90,-0.2)
     }
 }
 
