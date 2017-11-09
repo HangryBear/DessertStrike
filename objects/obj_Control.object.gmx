@@ -11,30 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>snd_Music1</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>701</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -95,33 +71,132 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>305</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_timeline_set</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>14</kind>
-            <timeline>tml_Formation1</timeline>
+            <kind>1</kind>
+            <string>/// Code to setup the game including all the objects in the level
+
+global.player_dir = image_angle // init glob var
+global.cakes = 5 // init glob var
+
+screenshot = 0 // var to handle screenshot index
+
+randomize(); // ensure the map and all other random events are fully randomised - can change this for defined seeds in order to generate proceduralised levels
+
+
+// create random oases across the level so we have some variety
+for (i=0; i&lt;random_range(10,20); i+=1)
+{
+    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , choose(obj_Island2,obj_Island3))
+    inst.image_angle = random_range(0,145)
+    scaler = random_range(0.4,1)
+    inst.image_xscale = scaler
+    inst.image_yscale = scaler
+    
+};
+
+// create random palm trees across the level so we have some variety
+for (i=0; i&lt;random_range(10,20); i+=1)
+{
+    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , obj_Palm1)
+    inst.image_xscale = choose(1,-1)
+};
+
+
+
+// create random desserts across the level for collection
+for (i=0; i&lt;global.cakes; i+=1)
+{
+    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , choose(obj_Cake1,obj_Cake2))
+    inst.image_xscale = choose(1,-1)
+};
+
+
+
+// init player obj and slow animation rate
+with (instance_create(room_width/2, room_height-150, obj_MyPlane))    {    image_speed = 0.4;    }
+
+// From Heartbeast book, adjust noise so slightly different each time.
+audio_em = audio_emitter_create()
+//audio_emitter_pitch(audio_em,random_range(.5,1.5))
+//audio_emitter_gain(audio_em,random_range(.7,1))
+audio_emitter_gain(audio_em,0.3)
+audio_play_sound_on(audio_em,snd_Hover1,true,10)
+
+
+// Create alarm for spawning baddies
+alarm[10] = room_speed * 2;
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>///Spawn baddies once alarm signal reached
+
+// TODO increase difficult with levels, written as below to prevent crash during respawn
+if (instance_exists(obj_MyPlane)){
+    inst = instance_create(random_range(obj_MyPlane.x-128,obj_MyPlane.x+128),-64, choose(obj_Enemy1,obj_Enemy2))
+} else {
+    inst = instance_create(room_width/2,-64, choose(obj_Enemy1,obj_Enemy2))
+}
+
+
+// reset alarm so we get triggered again
+alarm[10] = room_speed * random_range(1,5);
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
+            <kind>1</kind>
+            <string>/// create all the baddies
+
+// todo
+</string>
           </argument>
         </arguments>
       </action>
@@ -141,34 +216,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Code to setup the game
-
-global.player_dir = image_angle // init glob var
-
-// ensure the map and all other random events are fully randomised - can change this for defined seeds in order to generate proceduralised levels
-randomize();
-
-// create random lumps across the level so we have some variety
-for (i=0; i&lt;random_range(10,20); i+=1)
-{
-    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , choose(obj_Island2,obj_Island3))
-    inst.image_angle = random_range(0,145)
-    scaler = random_range(0.4,1)
-    inst.image_xscale = scaler
-    inst.image_yscale = scaler
-    
-};
-
-for (i=0; i&lt;random_range(10,20); i+=1)
-{
-    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , obj_Island1)
-};
+            <string>/// No more cake, you won
 
 
-screenshot = 0
 
-// init player obj and slow animation rate
-with (instance_create(512, 640, obj_MyPlane))    {    image_speed = 0.4;    }
+
 </string>
           </argument>
         </arguments>
@@ -274,6 +326,31 @@ with (instance_create(512, 640, obj_MyPlane))    {    image_speed = 0.4;    }
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// destroy sound emitter to prevent memory leak
+
+audio_emitter_free(audio_em)
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="8" enumb="64">
@@ -474,6 +551,75 @@ screenshot += 1;
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw cake total
+draw_text(340,room_height-40,global.cakes)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Load Winner Screen
+if (global.cakes = 0){
+    if (!instance_exists(obj_Winner1)){
+        win = instance_create(0,0,obj_Winner1)
+        global.endGame = true
+    }
+    else{
+        win.image_alpha +=0.05
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>332</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_end_game</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>

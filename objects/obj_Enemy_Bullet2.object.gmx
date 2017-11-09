@@ -77,6 +77,31 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// From Heartbeast book, adjust noise so slightly different each time.
+audio_em = audio_emitter_create()
+audio_emitter_pitch(audio_em,random_range(.5,1.5))
+audio_emitter_gain(audio_em,random_range(.7,1))
+audio_play_sound_on(audio_em,snd_Gunshot1,false,10)
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="1">
       <action>

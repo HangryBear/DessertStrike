@@ -10,6 +10,9 @@
     <sound>sound\snd_Shoot1</sound>
     <sound>sound\snd_Hover1</sound>
     <sound>sound\snd_Music1</sound>
+    <sound>sound\snd_Cake1</sound>
+    <sound>sound\snd_Thump</sound>
+    <sound>sound\snd_Gunshot1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Island1</sprite>
@@ -27,7 +30,9 @@
     <sprite>sprites\spr_Enemy_Bullet2</sprite>
     <sprite>sprites\spr_Enemy3</sprite>
     <sprite>sprites\spr_Enemy4</sprite>
-    <sprite>sprites\sprite15</sprite>
+    <sprite>sprites\spr_Cake1</sprite>
+    <sprite>sprites\spr_Cake2</sprite>
+    <sprite>sprites\spr_winner</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_Water</background>
@@ -39,7 +44,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_Control</object>
-    <object>objects\obj_Island1</object>
+    <object>objects\obj_Palm1</object>
     <object>objects\obj_Island2</object>
     <object>objects\obj_Island3</object>
     <object>objects\obj_MyPlane</object>
@@ -48,14 +53,13 @@
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
     <object>objects\obj_Enemy2</object>
-    <object>objects\obj_Enemy3</object>
-    <object>objects\obj_Enemy4</object>
+    <object>objects\obj_MasterEnemy</object>
     <object>objects\obj_Enemy_Bullet1</object>
     <object>objects\obj_Enemy_Bullet2</object>
+    <object>objects\obj_Cake1</object>
+    <object>objects\obj_Cake2</object>
+    <object>objects\obj_Winner1</object>
   </objects>
-  <timelines name="timelines">
-    <timeline>timelines\tml_Formation1</timeline>
-  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_MainGame</room>
   </rooms>

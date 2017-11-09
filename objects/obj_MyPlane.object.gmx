@@ -57,32 +57,6 @@
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// From Heartbeast book, adjust noise so slightly different each time.
-audio_em = audio_emitter_create()
-//audio_emitter_pitch(audio_em,random_range(.5,1.5))
-//audio_emitter_gain(audio_em,random_range(.7,1))
-audio_emitter_gain(audio_em,0.3)
-audio_play_sound_on(audio_em,snd_Hover1,false,10)
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="2" enumb="0">
       <action>
@@ -163,21 +137,33 @@ speed = max(speed - 0.05, 0)
 if (x &gt; room_width-16){ 
     x=room_width-16
     speed = 0 
+    if !audio_is_playing(snd_Explosion1){
+        audio_play_sound(snd_Explosion1, 10, false)
+    }
 }
 
 if (x &lt; 16){ 
     x = 16
     speed = 0 
+    if !audio_is_playing(snd_Explosion1){
+        audio_play_sound(snd_Explosion1, 10, false)
+    }
 }
 
 if (y &gt; room_height-64){ 
    y = room_height-64
    speed = 0
+     if !audio_is_playing(snd_Explosion1){
+        audio_play_sound(snd_Explosion1, 10, false)
+    }
 }
 
 if (y &lt; 16){ 
     y = 16
     speed = 0 
+    if !audio_is_playing(snd_Explosion1){
+        audio_play_sound(snd_Explosion1, 10, false)
+    }
 }
 
 
@@ -204,6 +190,30 @@ if (y &lt; 16){
           <argument>
             <kind>0</kind>
             <string>-10</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Thump</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -256,31 +266,6 @@ if (y &lt; 16){
         <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="7" enumb="3">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// destroy sound emitter to prevent memory leak
-
-audio_emitter_free(audio_em)
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="9" enumb="17">
@@ -394,7 +379,7 @@ audio_emitter_free(audio_em)
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>room_speed*0.25</string>
           </argument>
           <argument>
             <kind>4</kind>
