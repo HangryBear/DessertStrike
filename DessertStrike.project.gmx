@@ -7,6 +7,9 @@
   <sounds name="sound">
     <sound>sound\snd_Explosion1</sound>
     <sound>sound\snd_Explosion2</sound>
+    <sound>sound\snd_Shoot1</sound>
+    <sound>sound\snd_Hover1</sound>
+    <sound>sound\snd_Music1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Island1</sprite>
@@ -24,9 +27,11 @@
     <sprite>sprites\spr_Enemy_Bullet2</sprite>
     <sprite>sprites\spr_Enemy3</sprite>
     <sprite>sprites\spr_Enemy4</sprite>
+    <sprite>sprites\sprite15</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_Water</background>
+    <background>background\bck_sand</background>
   </backgrounds>
   <paths name="paths"/>
   <fonts name="fonts">

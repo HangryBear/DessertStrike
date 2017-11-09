@@ -51,7 +51,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>room_height</string>
+            <string>room_height-32</string>
           </argument>
           <argument>
             <kind>4</kind>

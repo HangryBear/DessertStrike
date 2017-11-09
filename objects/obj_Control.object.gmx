@@ -11,6 +11,30 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Music1</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>701</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -117,8 +141,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// init global vars
+            <string>/// Code to setup the game
+
 global.player_dir = image_angle // init glob var
+
+// ensure the map and all other random events are fully randomised - can change this for defined seeds in order to generate proceduralised levels
+randomize();
+
+// create random lumps across the level so we have some variety
+for (i=0; i&lt;random_range(10,20); i+=1)
+{
+    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , choose(obj_Island2,obj_Island3))
+    inst.image_angle = random_range(0,145)
+    scaler = random_range(0.4,1)
+    inst.image_xscale = scaler
+    inst.image_yscale = scaler
+    
+};
+
+for (i=0; i&lt;random_range(10,20); i+=1)
+{
+    inst = instance_create(random_range(16,room_width-16),random_range(16,room_height-64) , obj_Island1)
+};
+
+
+screenshot = 0
+
+// init player obj and slow animation rate
+with (instance_create(512, 640, obj_MyPlane))    {    image_speed = 0.4;    }
 </string>
           </argument>
         </arguments>
@@ -351,7 +401,7 @@ global.player_dir = image_angle // init glob var
           </argument>
           <argument>
             <kind>0</kind>
-            <string>room_height - 70</string>
+            <string>room_height - 60</string>
           </argument>
           <argument>
             <kind>5</kind>
@@ -396,6 +446,32 @@ global.player_dir = image_angle // init glob var
           <argument>
             <kind>4</kind>
             <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle screenshots with 'S' - not HTML5 version
+if keyboard_check_pressed(ord("S"))
+{
+screen_save(working_directory + "\screenshots\screenshot_" + string(screenshot) + ".png");
+screenshot += 1;
+}
+</string>
           </argument>
         </arguments>
       </action>
