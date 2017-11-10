@@ -32,13 +32,17 @@
     <sprite>sprites\spr_Enemy4</sprite>
     <sprite>sprites\spr_Cake1</sprite>
     <sprite>sprites\spr_Cake2</sprite>
-    <sprite>sprites\spr_winner</sprite>
+    <sprite>sprites\spr_Winner1</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bck_Water</background>
     <background>background\bck_sand</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_enemy_idle.gml</script>
+    <script>scripts\scr_enemy_chase.gml</script>
+    <script>scripts\scr_enemy_attack.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
   </fonts>
@@ -53,18 +57,21 @@
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
     <object>objects\obj_Enemy2</object>
-    <object>objects\obj_MasterEnemy</object>
     <object>objects\obj_Enemy_Bullet1</object>
     <object>objects\obj_Enemy_Bullet2</object>
     <object>objects\obj_Cake1</object>
     <object>objects\obj_Cake2</object>
-    <object>objects\obj_Winner1</object>
+    <object>objects\obj_Shake</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_MainGame</room>
   </rooms>
-  <constants number="1">
-    <constant name="EnemyPlaneSpeed">2</constant>
+  <constants number="5">
+    <constant name="PlayerBulletSpeed">10</constant>
+    <constant name="PlayerSpeed">2</constant>
+    <constant name="EnemyBulletSpeed">8</constant>
+    <constant name="HealthDrop">20</constant>
+    <constant name="EnemySpeed">1.5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
