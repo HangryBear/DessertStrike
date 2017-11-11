@@ -31,8 +31,8 @@ speed = -PlayerBulletSpeed
 
 // From Heartbeast book, adjust noise so slightly different each time.
 audio_em = audio_emitter_create()
-audio_emitter_pitch(audio_em,random_range(.5,1.5))
-audio_emitter_gain(audio_em,random_range(.7,1))
+audio_emitter_pitch(audio_em,random_range(.9,1.1))
+audio_emitter_gain(audio_em,random_range(.5,0.7))
 audio_play_sound_on(audio_em,snd_Shoot1,false,10)
 
 alarm[0] = 0.8*room_speed // destroy bullet after this time

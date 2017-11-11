@@ -162,6 +162,30 @@ audio_play_sound_on(audio_em,snd_Hover1,true,10)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Music1</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="10">
       <action>
@@ -214,6 +238,8 @@ alarm[10] = room_speed * random_range(1,5);
             <kind>1</kind>
             <string>/// Deal with the view following the player
 view_object[0]=obj_MyPlane;//set object to follow
+view_vborder[0] = 500 // keep us in the middle
+//view_vspeed[0] = PlayerSpeed*0.9 // track a little slower
 
 
 </string>

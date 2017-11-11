@@ -321,7 +321,7 @@ if (global.game_won){
 
 repeat(3)
    {
-   effect_create_above(ef_explosion,x,y,0.3, c_gray);
+   effect_create_above(ef_explosion,x,y,0.01, c_gray);
    }
    
 
