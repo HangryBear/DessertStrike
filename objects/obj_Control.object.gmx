@@ -528,7 +528,7 @@ audio_emitter_free(audio_em)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>view_hport[0]  - 58</string>
+            <string>view_hport[0]  - 57</string>
           </argument>
           <argument>
             <kind>1</kind>
