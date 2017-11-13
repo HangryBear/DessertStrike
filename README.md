@@ -10,17 +10,17 @@ https://hangrybear.itch.io/dessert-strike
 
 # Controls
 
-<Arrow keys> Move
+Arrow keys - Move
 
-<CTRL> Shoot
+CTRL - Shoot
 
-<SHIFT> Strafe
+SHIFT - Strafe
 
-<S> Screenshot
+S - Screenshot
 
-<R> See enemy view range
+R - See enemy view range
 
-<M> Music on/off
+M - Music on/off
 
-<ESC> Quit
+ESC - Quit
 
