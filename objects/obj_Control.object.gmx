@@ -92,6 +92,7 @@ global.cakes = 5 // init glob var
 global.game_won = false // stop play once all the cakes collected
 global.iAlpha = 0 // for winning screen
 global.enemyRadar = false // see enemy view rings, for debug only
+global.game_lost = false
 
 
 
@@ -99,27 +100,47 @@ screenshot = 0 // var to handle screenshot index
 
 randomize(); // ensure the map and all other random events are fully randomised - can change this for defined seeds in order to generate proceduralised levels
 
+// create random mountain ranges across the level so we have some variety
+repeat(8)
+{
+
+    with( instance_create(random_range(128,room_width-128),random_range(16,room_height-512),obj_Island3) ){
+        while(!place_free(x,y))
+        {
+            
+            image_index=random(7) // select a random mountain from 8
+            x=random_range(128,room_width-128)
+            y=random_range(16,room_height-512)
+        }
+        image_xscale = choose(1,-1)
+        image_speed=0
+    }
+
+}
+
 
 // create random oases across the level so we have some variety
-i=0
-for (i=0; i&lt;10; i+=1)
+repeat(5)
 {
-    with( instance_create(random_range(16,room_width-16),random_range(16,0.8*room_height) ,choose(obj_Island2,obj_Island3) )){
+    with( instance_create(random_range(16,room_width-16),random_range(16,0.8*room_height) ,choose(obj_Island2) )){
         while(!place_free(x,y))
         {
             x=random_range(16,room_width-16)
             y=random_range(16,0.8*room_height)
         }
-    scaler = random_range(0.6,1)
+    scaler = random_range(0.6,1.5)
     image_xscale = scaler
     image_yscale = scaler
     }
     
 };
 
+
+
+
+
 // create random palm trees across the level so we have some variety
-i=0
-for (i=0; i&lt;100; i+=1)
+repeat(100)
 {
 
     with( instance_create(random_range(16,room_width-16),random_range(16,room_height-64),obj_Palm1) ){
@@ -219,6 +240,22 @@ alarm[10] = room_speed * random_range(1,5);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>331</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_restart_game</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -239,6 +276,7 @@ alarm[10] = room_speed * random_range(1,5);
             <string>/// Deal with the view following the player
 view_object[0]=obj_MyPlane;//set object to follow
 view_vborder[0] = 500 // keep us in the middle
+
 //view_vspeed[0] = PlayerSpeed*0.9 // track a little slower
 
 
@@ -373,37 +411,28 @@ if (global.enemyRadar){global.enemyRadar = false
     <event eventtype="7" enumb="6">
       <action>
         <libid>1</libid>
-        <id>321</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_message</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>2</kind>
-            <string>GAME OVER</string>
+            <kind>1</kind>
+            <string>/// Load Loser Screen
+global.game_lost = true
+
+
+
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>331</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_restart_game</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="7" enumb="3">
@@ -668,7 +697,7 @@ draw_text(340,view_hport[0] -30,global.cakes)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Load Winner Screen
+            <string>/// Load Winner/Loser Screen
 if (global.cakes &lt; 1){
         if(global.iAlpha &lt;1){
             global.iAlpha +=0.05
@@ -676,6 +705,54 @@ if (global.cakes &lt; 1){
         draw_set_alpha(global.iAlpha)
         draw_sprite(spr_Winner1,-1,view_wport[0],view_hport[0])
         global.game_won = true
+        audio_stop_all()
+}
+
+if (global.game_lost){
+                if(global.iAlpha &lt;1){
+            global.iAlpha +=0.05
+        }
+        draw_set_alpha(global.iAlpha)
+        draw_sprite(spr_Loser1,-1,view_wport[0],view_hport[0])
+        
+        if (global.iAlpha=0.85){
+            alarm[5] = 5*room_speed
+
+        }
+            audio_stop_all() 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Toggle music on/off
+
+if (!audio_is_paused(snd_Music1)){
+
+     audio_pause_sound(snd_Music1)
+ 
+} else{
+
+    audio_resume_sound(snd_Music1);
+     
 }
 
 </string>

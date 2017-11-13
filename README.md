@@ -1,16 +1,26 @@
 # Dessert Strike
 
-A game loosely based on Desert Strike, but with a dessert based theme.
+A top down helicopter shooter based on Desert Strike. 
 
-Created for Game Off 2017 #GitHubGameOff using GameMaker Studio 1.4.
+Leave no cake behind!
 
-Currently in early development, but will be ready for the end of the jam at the end of November.
+The game is currently in early development for Game Off 2017 game jam.
 
-If you want to play the game, just download DessertStrike.exe from Github or
-Itch.io here: https://hangrybear.itch.io/dessert-strike
+https://hangrybear.itch.io/dessert-strike
 
-Arrow keys to move
-Ctrl to fire
-S to take screenshots
-R to see enemy range
-Esc to quit 
+# Controls
+
+<Arrow keys> Move
+
+<CTRL> Shoot
+
+<SHIFT> Strafe
+
+<S> Screenshot
+
+<R> See enemy view range
+
+<M> Music on/off
+
+<ESC> Quit
+

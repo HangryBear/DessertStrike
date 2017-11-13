@@ -135,6 +135,30 @@ script_execute(state)
       </action>
       <action>
         <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Thump</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>203</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -166,6 +190,9 @@ script_execute(state)
           <argument>
             <kind>1</kind>
             <string>/// Draw self and state
+// draw plane shadow
+draw_sprite_shadow(225, 24, 1.0, c_black, 0.3)
+
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 draw_self()

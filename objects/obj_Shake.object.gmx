@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// screenshake when hit
+
+view_object[1]=obj_MyPlane;//set object to follow
+//view_vborder[1] = 500 // keep us in the middle
+
 view_visible[1]=1
 
 alarm[0] = 0.5 * room_speed
@@ -100,9 +104,9 @@ alarm[0] = 0.5 * room_speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>amount = 10
-view_xview[1]=view_xview[0]+(irandom(amount)-amount/2);
-view_yview[1]=view_yview[0]+(irandom(amount)-amount/2);
+            <string>amount = 5
+view_xview[1]=view_xview[1]+(irandom(amount)-amount/2);
+view_yview[1]=view_yview[1]+(irandom(amount)-amount/2);
 </string>
           </argument>
         </arguments>

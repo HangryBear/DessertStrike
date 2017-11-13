@@ -3,7 +3,7 @@
   <spriteName>spr_MyPlane</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-100</depth>
+  <depth>-500</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -125,13 +125,23 @@
 
 // Surplant with 'nput' scripts from marketplace which handles keyboard/gamepad simultaneously
 
-if keyboard_check(vk_left){
+if keyboard_check(vk_left) and keyboard_check(vk_shift){
+
+            motion_add(image_angle-180, 0.3*PlayerSpeed);
+            speed = clamp(speed,0,0.75*PlayerSpeed)
+                    
+} else if keyboard_check(vk_left){
     image_angle += 2.0
     direction += 2.0
     global.player_dir = image_angle
 }    
 
-if keyboard_check(vk_right){
+
+if keyboard_check(vk_right) and keyboard_check(vk_shift){
+          motion_add(image_angle-180, -0.3*PlayerSpeed);
+          speed = clamp(speed,0,0.75*PlayerSpeed)
+
+} else if keyboard_check(vk_right){
     direction -=2.0
     image_angle -= 2.0
     global.player_dir = image_angle
@@ -144,8 +154,8 @@ if keyboard_check(vk_up){
 }
 
 if keyboard_check(vk_down){
-    if (speed &gt;= 0){
-        speed -= 0.2
+    if speed&lt;=0.5*PlayerSpeed{
+       motion_add(image_angle+90,-0.2)
         //motion_add(image_angle+90,-0.2)
     }
 }
@@ -317,11 +327,11 @@ if (global.game_won){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x,y,obj_Shake)//shake the screen
+            <string>//instance_create(x,y,obj_Shake)//shake the screen
 
 repeat(3)
    {
-   effect_create_above(ef_explosion,x,y,0.01, c_gray);
+   effect_create_above(ef_flare,x,y,0.1, c_gray);
    }
    
 
@@ -417,6 +427,8 @@ repeat(3)
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -433,11 +445,25 @@ repeat(3)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x,y,obj_Shake)//shake the screen
-
+            <string>/// draw plane shadow
+draw_sprite_shadow(225, 24, 1.0, c_black, 0.3)
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>500</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring>draw_self();</codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="9" enumb="17">

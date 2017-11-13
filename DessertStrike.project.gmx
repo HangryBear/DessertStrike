@@ -3,7 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Essential Scripts</extension>
+    <extension index="1">extensions\Screen Shake Scripts</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\snd_Explosion1</sound>
     <sound>sound\snd_Explosion2</sound>
@@ -17,7 +20,6 @@
   <sprites name="sprites">
     <sprite>sprites\spr_Island1</sprite>
     <sprite>sprites\spr_Island2</sprite>
-    <sprite>sprites\spr_Island3</sprite>
     <sprite>sprites\spr_MyPlane</sprite>
     <sprite>sprites\spr_Player_Bullet</sprite>
     <sprite>sprites\spr_Enemy1</sprite>
@@ -33,6 +35,8 @@
     <sprite>sprites\spr_Cake1</sprite>
     <sprite>sprites\spr_Cake2</sprite>
     <sprite>sprites\spr_Winner1</sprite>
+    <sprite>sprites\spr_Mtns</sprite>
+    <sprite>sprites\spr_Loser1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -42,6 +46,44 @@
     <script>scripts\scr_enemy_idle.gml</script>
     <script>scripts\scr_enemy_chase.gml</script>
     <script>scripts\scr_enemy_attack.gml</script>
+    <scripts name="Essential Scripts">
+      <scripts name="Drawing">
+        <script>scripts\draw_text_outlined.gml</script>
+        <script>scripts\draw_text_shadow.gml</script>
+        <script>scripts\draw_text_shadow_ext.gml</script>
+        <script>scripts\draw_sprite_outlined.gml</script>
+        <script>scripts\draw_sprite_shadow.gml</script>
+      </scripts>
+      <scripts name="String Manipulation">
+        <script>scripts\string_split.gml</script>
+      </scripts>
+      <scripts name="Approach Value">
+        <script>scripts\approach.gml</script>
+        <script>scripts\angle_approach.gml</script>
+        <script>scripts\smooth_approach.gml</script>
+      </scripts>
+      <scripts name="Chance Functions">
+        <script>scripts\percent_chance.gml</script>
+        <script>scripts\round_chance.gml</script>
+        <script>scripts\set_chance.gml</script>
+        <script>scripts\multi_chance.gml</script>
+      </scripts>
+      <scripts name="List Functions">
+        <script>scripts\ds_list_reverse.gml</script>
+        <script>scripts\ds_list_random.gml</script>
+        <script>scripts\ds_list_delete_all.gml</script>
+      </scripts>
+      <scripts name="Instance Functions">
+        <script>scripts\instance_list_random.gml</script>
+        <script>scripts\instance_nearest_list.gml</script>
+      </scripts>
+      <scripts name="Misc">
+        <script>scripts\mouse_over.gml</script>
+        <script>scripts\stick_to.gml</script>
+        <script>scripts\stick_to_angle.gml</script>
+        <script>scripts\within.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -61,7 +103,6 @@
     <object>objects\obj_Enemy_Bullet2</object>
     <object>objects\obj_Cake1</object>
     <object>objects\obj_Cake2</object>
-    <object>objects\obj_Shake</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_MainGame</room>
@@ -69,7 +110,7 @@
   <constants number="5">
     <constant name="PlayerBulletSpeed">10</constant>
     <constant name="PlayerSpeed">2</constant>
-    <constant name="EnemyBulletSpeed">8</constant>
+    <constant name="EnemyBulletSpeed">5</constant>
     <constant name="HealthDrop">20</constant>
     <constant name="EnemySpeed">1.5</constant>
   </constants>
