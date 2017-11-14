@@ -11,26 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>701</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_score</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>711</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -93,6 +73,7 @@ global.game_won = false // stop play once all the cakes collected
 global.iAlpha = 0 // for winning screen
 global.enemyRadar = false // see enemy view rings, for debug only
 global.game_lost = false
+global.once = false
 
 
 
@@ -113,7 +94,9 @@ repeat(8)
             y=random_range(16,room_height-512)
         }
         image_xscale = choose(1,-1)
+        image_index=random(7) // select a random mountain from 8
         image_speed=0
+         depth = 10000 - 1.1*y // stops things overlapping
     }
 
 }
@@ -131,6 +114,7 @@ repeat(5)
     scaler = random_range(0.6,1.5)
     image_xscale = scaler
     image_yscale = scaler
+   
     }
     
 };
@@ -170,7 +154,7 @@ for (global.i=0; global.i&lt;global.cakes; global.i+=1)
 }
 
 // init player obj and slow animation rate
-with (instance_create(room_width/2, room_height-150, obj_MyPlane))    {    image_speed = 0.4;    }
+instance_create(room_width/2, room_height-150, obj_MyPlane)
 
 // From Heartbeast book, adjust noise so slightly different each time.
 audio_em = audio_emitter_create()
@@ -238,6 +222,45 @@ alarm[10] = room_speed * random_range(1,5);
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Load next level
+audio_resume_all()
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>222</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_next_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="2" enumb="5">
@@ -703,9 +726,14 @@ if (global.cakes &lt; 1){
             global.iAlpha +=0.05
         }
         draw_set_alpha(global.iAlpha)
-        draw_sprite(spr_Winner1,-1,view_wport[0],view_hport[0])
-        global.game_won = true
-        audio_stop_all()
+        draw_sprite(spr_NLevel,-1,view_wport[0],view_hport[0])
+
+        if !global.once{
+            global.game_won = true
+            alarm[6] = 3*room_speed
+            audio_stop_all()
+            global.once = true
+        }
 }
 
 if (global.game_lost){

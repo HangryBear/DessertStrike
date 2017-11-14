@@ -37,6 +37,8 @@
     <sprite>sprites\spr_Winner1</sprite>
     <sprite>sprites\spr_Mtns</sprite>
     <sprite>sprites\spr_Loser1</sprite>
+    <sprite>sprites\spr_NLevel</sprite>
+    <sprite>sprites\spr_Roads1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -105,7 +107,8 @@
     <object>objects\obj_Cake2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_MainGame</room>
+    <room>rooms\room2</room>
+    <room>rooms\room1</room>
   </rooms>
   <constants number="5">
     <constant name="PlayerBulletSpeed">10</constant>

@@ -13,7 +13,8 @@ var col = argument3;
 var alp = argument4;
 var xx = x+lengthdir_x(len, dir);
 var yy = y+lengthdir_y(len, dir);
-d3d_set_fog(true, col, 0, 1);
-draw_sprite_ext(sprite_index, image_index, xx, yy, sca, sca, image_angle, c_white, alp);
-d3d_set_fog(0, 0, 0, 0);
+//d3d_set_fog(true, col, 0, 1);
+//draw_sprite_ext(sprite_index, image_index, xx, yy, sca, sca, image_angle, c_white, alp);
+draw_sprite_ext(sprite_index, image_index, xx, yy, sca, sca, image_angle, c_black, alp);
+//d3d_set_fog(0, 0, 0, 0);
 
