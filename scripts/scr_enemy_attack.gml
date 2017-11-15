@@ -21,6 +21,7 @@ if(instance_exists(obj_MyPlane)){
                 speed = EnemyBulletSpeed;
             }
             
+            audio_play_sound(snd_Shoot1,8,false)
             alarm[0] = room_speed
         }
     

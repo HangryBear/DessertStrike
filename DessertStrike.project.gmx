@@ -23,25 +23,28 @@
     <sprite>sprites\spr_MyPlane</sprite>
     <sprite>sprites\spr_Player_Bullet</sprite>
     <sprite>sprites\spr_Enemy1</sprite>
-    <sprite>sprites\spr_Enemy2</sprite>
     <sprite>sprites\spr_Explosion1</sprite>
     <sprite>sprites\spr_Explosion2</sprite>
     <sprite>sprites\spr_HUD</sprite>
     <sprite>sprites\spr_Lives</sprite>
     <sprite>sprites\spr_Enemy_Bullet</sprite>
     <sprite>sprites\spr_Enemy_Bullet2</sprite>
-    <sprite>sprites\spr_Enemy3</sprite>
-    <sprite>sprites\spr_Enemy4</sprite>
     <sprite>sprites\spr_Cake1</sprite>
     <sprite>sprites\spr_Cake2</sprite>
     <sprite>sprites\spr_Winner1</sprite>
-    <sprite>sprites\spr_Mtns</sprite>
     <sprite>sprites\spr_Loser1</sprite>
     <sprite>sprites\spr_NLevel</sprite>
-    <sprite>sprites\spr_Roads1</sprite>
+    <sprite>sprites\spr_Mtns</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
+    <background>background\bck_palm</background>
+    <background>background\bck_roads1</background>
+    <background>background\bck_water</background>
+    <background>background\background4</background>
+    <background>background\bck_bigset1</background>
+    <background>background\bck_winner</background>
+    <background>background\bck_loser</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -91,7 +94,8 @@
     <font>fonts\font0</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_Control</object>
+    <object>objects\obj_Title</object>
+    <object>objects\obj_Level1</object>
     <object>objects\obj_Palm1</object>
     <object>objects\obj_Island2</object>
     <object>objects\obj_Island3</object>
@@ -107,15 +111,19 @@
     <object>objects\obj_Cake2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room2</room>
-    <room>rooms\room1</room>
+    <room>rooms\titlescreen</room>
+    <room>rooms\level1</room>
+    <room>rooms\level2</room>
+    <room>rooms\winner_screen</room>
+    <room>rooms\loser_screen</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
     <constant name="PlayerBulletSpeed">10</constant>
     <constant name="PlayerSpeed">2</constant>
     <constant name="EnemyBulletSpeed">5</constant>
     <constant name="HealthDrop">20</constant>
     <constant name="EnemySpeed">1.5</constant>
+    <constant name="ShootDelay">0.25</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
