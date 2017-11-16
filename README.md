@@ -2,8 +2,6 @@
 
 A top down helicopter shooter based on Desert Strike. 
 
-Leave no cake behind!
-
 The game is currently in early development for Game Off 2017 game jam.
 
 https://hangrybear.itch.io/dessert-strike

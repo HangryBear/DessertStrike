@@ -29,11 +29,9 @@
 
 global.player_dir = image_angle // init glob var
 global.cakes = 5 // init glob var
-global.game_won = false // stop play once all the cakes collected
 global.iAlpha = 0 // for winning screen
 global.enemyRadar = false // see enemy view rings, for debug only
 global.music = true // music should play
-global.game_lost = false
 global.once = false
 global.screenshot = 0 // var to handle screenshot index
 lives = 3

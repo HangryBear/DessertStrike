@@ -27,25 +27,25 @@
             <kind>1</kind>
             <string>/// Procedurally generate level 1
 
-
-    if global.music { audio_play_sound(snd_Music1,10,true) }
-
-
-    // create random mountain ranges across the level so we have some variety
+    if global.music { audio_play_sound(snd_Music1,8,true) }
+    
+    
+      // create random mountain ranges across the level so we have some variety
     repeat(8)
     {
+           
     
-        with( instance_create(random_range(128,room_width-128),random_range(16,room_height-512),obj_Island3) ){
+        with( instance_create(random_range(256,room_width-128),random_range(256,room_height-512),obj_Island3) ){
             while(!place_free(x,y))
             {
-                
+              
                 image_index=random(7) // select a random mountain from 8
-                x=random_range(128,room_width-128)
+                x=random_range(256,room_width-256)
                 y=random_range(16,room_height-512)
             }
             image_xscale = choose(1,-1)
             image_index=random(7) // select a random mountain from 8
-            image_speed=0
+           image_speed=0
              depth = 10000 - 1.1*y // stops things overlapping
         }
     
@@ -86,7 +86,7 @@
     global.i=0
     for (global.i=0; global.i&lt;global.cakes; global.i+=1)
     {
-        with( instance_create(random_range(16,room_width-16),(((global.i+1)/(global.cakes+1))*room_height)-(1/10)*room_height,choose(obj_Cake1,obj_Cake2) )){
+        with( instance_create(random_range(16,room_width-16),(((global.i+1)/(global.cakes+1))*room_height)-(1/10)*room_height,obj_Cake1 )){
             while(!place_free(x,y))
             {
                 x=random_range(16,room_width-16)
@@ -101,202 +101,6 @@
 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>501</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_sprite</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>5</kind>
-            <sprite>spr_HUD</sprite>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0] - 76</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>-1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>526</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_font</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>12</kind>
-            <font>font0</font>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>524</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_color</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>13</kind>
-            <string>56319</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>703</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_score</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>230</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0]  - 57</string>
-          </argument>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>714</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_life_images</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>40</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0]  - 60</string>
-          </argument>
-          <argument>
-            <kind>5</kind>
-            <sprite>spr_Lives</sprite>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>723</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_health</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>12</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0] -21</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>137</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0] -32</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw cake total
-draw_text(340,view_hport[0] -30,global.cakes)
 </string>
           </argument>
         </arguments>
