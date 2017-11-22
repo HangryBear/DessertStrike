@@ -27,7 +27,13 @@
             <kind>1</kind>
             <string>/// Procedurally generate level 1
 
-    if global.music { audio_play_sound(snd_Music1,8,true) }
+    if global.music { 
+    
+        audio_play_sound(snd_Music1,8,true) 
+        sound_volume(snd_Music1, 0.5)    
+        
+        
+    }
     
     
       // create random mountain ranges across the level so we have some variety

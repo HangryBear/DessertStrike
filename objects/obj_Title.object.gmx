@@ -36,12 +36,38 @@ global.once = false
 global.screenshot = 0 // var to handle screenshot index
 lives = 3
 health = 100
+score = 0
 
 randomize() 
 
+alarm[0] = 2 * room_speed
 
 
-room_goto_next() // TODO add title screen
+//room_goto_next() // TODO add title screen
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// display start text
+instance_create(0,0,obj_PStart)
 </string>
           </argument>
         </arguments>
@@ -65,8 +91,8 @@ room_goto_next() // TODO add title screen
           <argument>
             <kind>1</kind>
             <string>/// Take screenshot
-screen_save(working_directory + "\screenshots\screenshot_" + string(screenshot) + ".png");
-screenshot += 1;
+screen_save(working_directory + "\screenshots\screenshot_" + string(global.screenshot) + ".png");
+global.screenshot += 1;
 </string>
           </argument>
         </arguments>

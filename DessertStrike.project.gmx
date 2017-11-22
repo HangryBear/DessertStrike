@@ -20,6 +20,7 @@
     <sprite>sprites\spr_MyPlane</sprite>
     <sprite>sprites\spr_Player_Bullet</sprite>
     <sprite>sprites\spr_Enemy1</sprite>
+    <sprite>sprites\spr_Enemy2</sprite>
     <sprite>sprites\spr_Explosion1</sprite>
     <sprite>sprites\spr_Explosion2</sprite>
     <sprite>sprites\spr_HUD</sprite>
@@ -31,6 +32,9 @@
     <sprite>sprites\spr_Loser1</sprite>
     <sprite>sprites\spr_NLevel</sprite>
     <sprite>sprites\spr_Mtns</sprite>
+    <sprite>sprites\spr_Banner</sprite>
+    <sprite>sprites\spr_Keys</sprite>
+    <sprite>sprites\spr_Hangry</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -41,12 +45,16 @@
     <background>background\bck_bigset1</background>
     <background>background\bck_winner</background>
     <background>background\bck_loser</background>
+    <background>background\bck_nextlevel</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_enemy_idle.gml</script>
+    <script>scripts\scr_enemy_idle2.gml</script>
     <script>scripts\scr_enemy_chase.gml</script>
+    <script>scripts\scr_enemy_chase2.gml</script>
     <script>scripts\scr_enemy_attack.gml</script>
+    <script>scripts\scr_enemy_attack2.gml</script>
     <script>scripts\scr_draw_sprite_shadow.gml</script>
     <script>scripts\scr_gradually_turn.gml</script>
   </scripts>
@@ -65,14 +73,21 @@
     <object>objects\obj_Explosion1</object>
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
+    <object>objects\obj_Enemy2</object>
     <object>objects\obj_Enemy_Bullet1</object>
     <object>objects\obj_Enemy_Bullet2</object>
     <object>objects\obj_Cake1</object>
-    <object>objects\obj_Loser</object>
+    <object>objects\obj_trans</object>
+    <object>objects\obj_Winner</object>
+    <object>objects\obj_Banner</object>
+    <object>objects\obj_Keys</object>
+    <object>objects\obj_Hangry</object>
+    <object>objects\obj_PStart</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titlescreen</room>
     <room>rooms\level1</room>
+    <room>rooms\next_level_screen</room>
     <room>rooms\level2</room>
     <room>rooms\winner_screen</room>
     <room>rooms\loser_screen</room>

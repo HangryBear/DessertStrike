@@ -28,13 +28,40 @@
             <string>/// Make homing missile
 
 if instance_exists(obj_MyPlane){
+    tracking = true
     move_towards_point(obj_MyPlane.x,obj_MyPlane.y,EnemyBulletSpeed)
+
+    alarm[1] = 0.5*room_speed
     alarm[0] = 3*room_speed
     audio_play_sound(snd_Shoot1,8,false)
+    
     
 }else{
     instance_destroy()
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>tracking = false
 </string>
           </argument>
         </arguments>
@@ -54,6 +81,38 @@ if instance_exists(obj_MyPlane){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if instance_exists(obj_MyPlane){
+   if tracking {
+     // only homes until Alarm 1 reached - for fairness
+      move_towards_point(obj_MyPlane.x,obj_MyPlane.y,EnemyBulletSpeed)
+   }
+   
+    
+}else{
+    instance_destroy()
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>
