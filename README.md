@@ -14,11 +14,6 @@ CTRL - Shoot
 
 SHIFT - Strafe
 
-S - Screenshot
-
 R - See enemy view range
 
 M - Music on/off
-
-ESC - Quit
-

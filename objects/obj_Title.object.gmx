@@ -28,7 +28,7 @@
             <string>/// Set up base parameters for game
 
 global.player_dir = image_angle // init glob var
-global.cakes = 5 // init glob var
+global.cakes = CAKES // init glob var
 global.iAlpha = 0 // for winning screen
 global.enemyRadar = false // see enemy view rings, for debug only
 global.music = true // music should play
@@ -37,6 +37,7 @@ global.screenshot = 0 // var to handle screenshot index
 global.demo = false // displays overlay for taking screenshots and videos
 global.ammo = 100 // make more like Desert Strike
 global.fuel = 100 // make more like Desert Strike
+global.powerup = 0 // allow powerup system
 lives = 3
 health = 100
 score = 0
@@ -45,8 +46,16 @@ randomize()
 
 alarm[0] = 2 * room_speed
 
+// play music
 
-//room_goto_next() // TODO add title screen
+    if global.music { 
+    
+        audio_play_sound(snd_Music1,8,true) 
+        sound_volume(snd_Music1, 0.5)    
+        
+        
+    }
+
 </string>
           </argument>
         </arguments>

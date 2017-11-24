@@ -320,13 +320,18 @@ if (global.ammo &lt;=0){
 
 // Level complete
 if global.cakes = 0 { 
-    global.cakes = 5
+    global.cakes = CAKES
+    health = 100
+    global.ammo = 100
+    global.fuel = 100
     room_goto_next()
 }
 
 // Lose a life
 if health &lt;= 0 {
     health = 100
+    global.ammo = 100
+    global.powerup -=1 // lose powerup on death
     lives -= 1
     instance_change(obj_Explosion2,true)
 }
@@ -352,7 +357,14 @@ if (keyboard_check_pressed(ord('R'))){
 if keyboard_check(vk_control){
     if can_shoot{
         can_shoot = false
-        instance_create(x,y,obj_Player_Bullet)
+    
+        if (global.powerup &gt; 0){ // get 2 shots
+                instance_create(x,y,obj_Player_Bullet1)
+        } else {
+                instance_create(x,y,obj_Player_Bullet)
+        }        
+                
+        
         global.ammo -=5 // has to be like this as bar shows as a percent of 100 units
         alarm[0] = ShootDelay * room_speed
     }
@@ -431,6 +443,219 @@ if (y &lt; 16){
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_Powerup">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Do an animation when player collects
+
+repeat(5)
+    {
+    effect_create_below(ef_ring, x - 32 + random(64), y - 32 + random(64), random(0.5), make_color_rgb(random(255), random(255), random(255)));
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Cake1</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Add powerup
+
+// change code below to +=1 once have more powerups
+
+global.powerup =1 // only 1 powerup upgrade at the moment
+
+score +=500
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_Health">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Do an animation when player collects
+
+repeat(5)
+    {
+    effect_create_below(ef_ring, x - 32 + random(64), y - 32 + random(64), random(0.5), make_color_rgb(random(255), random(255), random(255)));
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>snd_Cake1</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>score</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>50</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Add health up to max of 100
+if (health &lt;=75) {
+    health += 25
+} else {
+    health = 100
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>other</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="4" ename="obj_Ammo">
@@ -535,6 +760,30 @@ repeat(5)
       </action>
       <action>
         <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>score</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>50</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>203</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -569,7 +818,7 @@ repeat(5)
 
 repeat(5)
     {
-    effect_create_below(ef_ring, x, y, random(0.3), make_color_rgb(random(255), random(255), random(255)));
+    effect_create_below(ef_ring, x - 32 + random(64), y - 32 + random(64), random(0.5), make_color_rgb(random(255), random(255), random(255)));
     }
 
 </string>
@@ -626,6 +875,30 @@ repeat(5)
       </action>
       <action>
         <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>-1</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>score</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>50</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>203</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -658,11 +931,19 @@ repeat(5)
             <kind>1</kind>
             <string>/// Do an animation when player collects
 
+
+if (global.cakes !=1){ // stops annoying glitch where effect persists into next screen
+
 repeat(10)
     {
     effect_create_below(ef_star, x - 32 + random(64), y - 32 + random(64), choose(0, 1, 2), c_yellow);
     }
+    
+}
+    
 global.cakes -= 1
+
+
 </string>
           </argument>
         </arguments>
@@ -1309,7 +1590,7 @@ alarm[1] = 1 * room_speed // make invincible for 3 seconds
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// draw flicker if invincible
+            <string>/// invincible flicker &amp; shadow
 
 if invincible &amp;&amp; falling{
     if (image_alpha&gt;0.1){

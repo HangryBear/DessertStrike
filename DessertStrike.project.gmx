@@ -19,6 +19,7 @@
     <sprite>sprites\spr_Island2</sprite>
     <sprite>sprites\spr_MyPlane</sprite>
     <sprite>sprites\spr_Player_Bullet</sprite>
+    <sprite>sprites\spr_Player_Bullet1</sprite>
     <sprite>sprites\spr_Enemy1</sprite>
     <sprite>sprites\spr_Enemy2</sprite>
     <sprite>sprites\spr_Explosion1</sprite>
@@ -29,15 +30,14 @@
     <sprite>sprites\spr_Enemy_Bullet2</sprite>
     <sprite>sprites\spr_Cake1</sprite>
     <sprite>sprites\spr_MenIcon</sprite>
-    <sprite>sprites\spr_Winner1</sprite>
-    <sprite>sprites\spr_Loser1</sprite>
-    <sprite>sprites\spr_NLevel</sprite>
     <sprite>sprites\spr_Mtns</sprite>
     <sprite>sprites\spr_Banner</sprite>
     <sprite>sprites\spr_Keys</sprite>
     <sprite>sprites\spr_Hangry</sprite>
     <sprite>sprites\spr_Oil</sprite>
     <sprite>sprites\spr_Ammo</sprite>
+    <sprite>sprites\spr_Health</sprite>
+    <sprite>sprites\spr_Powerup</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -46,9 +46,6 @@
     <background>background\bck_water</background>
     <background>background\background4</background>
     <background>background\bck_bigset1</background>
-    <background>background\bck_winner</background>
-    <background>background\bck_loser</background>
-    <background>background\bck_nextlevel</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -63,17 +60,19 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_Title</object>
     <object>objects\obj_LevelHUD</object>
-    <object>objects\obj_Level1</object>
     <object>objects\obj_Palm1</object>
     <object>objects\obj_Island2</object>
     <object>objects\obj_Island3</object>
     <object>objects\obj_MyPlane</object>
     <object>objects\obj_Player_Bullet</object>
+    <object>objects\obj_Player_Bullet1</object>
     <object>objects\obj_Explosion1</object>
+    <object>objects\obj_Explosion3</object>
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
     <object>objects\obj_Enemy2</object>
@@ -82,22 +81,28 @@
     <object>objects\obj_Cake1</object>
     <object>objects\obj_trans</object>
     <object>objects\obj_Winner</object>
+    <object>objects\obj_Loser</object>
     <object>objects\obj_Banner</object>
     <object>objects\obj_Keys</object>
     <object>objects\obj_Hangry</object>
     <object>objects\obj_PStart</object>
     <object>objects\obj_Oil</object>
     <object>objects\obj_Ammo</object>
+    <object>objects\obj_Health</object>
+    <object>objects\obj_Powerup</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titlescreen</room>
-    <room>rooms\level1</room>
+    <room>rooms\LEVEL_1</room>
     <room>rooms\next_level_screen</room>
-    <room>rooms\level2</room>
+    <room>rooms\LEVEL_2</room>
+    <room>rooms\next_level</room>
+    <room>rooms\LEVEL_3</room>
     <room>rooms\winner_screen</room>
     <room>rooms\loser_screen</room>
   </rooms>
-  <constants number="7">
+  <constants number="8">
+    <constant name="CAKES">5</constant>
     <constant name="TurnRate">15</constant>
     <constant name="PlayerBulletSpeed">10</constant>
     <constant name="PlayerSpeed">2</constant>

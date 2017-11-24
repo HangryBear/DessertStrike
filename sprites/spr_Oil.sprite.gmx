@@ -21,5 +21,14 @@
   <height>32</height>
   <frames>
     <frame index="0">images\spr_Oil_0.png</frame>
+    <frame index="1">images\spr_Oil_1.png</frame>
+    <frame index="2">images\spr_Oil_2.png</frame>
+    <frame index="3">images\spr_Oil_3.png</frame>
+    <frame index="4">images\spr_Oil_4.png</frame>
+    <frame index="5">images\spr_Oil_5.png</frame>
+    <frame index="6">images\spr_Oil_6.png</frame>
+    <frame index="7">images\spr_Oil_7.png</frame>
+    <frame index="8">images\spr_Oil_8.png</frame>
+    <frame index="9">images\spr_Oil_9.png</frame>
   </frames>
 </sprite>

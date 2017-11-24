@@ -36,6 +36,11 @@
     }
     
     
+/*
+
+ Legacy procedural generation code - wasn't perfect as objects could overlap
+
+
       // create random mountain ranges across the level so we have some variety
     repeat(8)
     {
@@ -104,9 +109,7 @@
     }
 
 
-
-
-
+*/
 </string>
           </argument>
         </arguments>

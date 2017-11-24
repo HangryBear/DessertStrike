@@ -116,6 +116,45 @@ script_execute(state)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_Player_Bullet1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Deduct health, and play explosion sequence
+
+    audio_play_sound(snd_Thump,5,false)
+
+   
+if (enemyHealth &gt; 0){
+    enemyHealth = enemyHealth - 75
+    instance_destroy(other)
+    flash = true
+    alarm[1] = 0.2* room_speed
+
+}
+
+if (enemyHealth &lt;=0){
+    score += 250
+    instance_change(obj_Explosion3, true)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_Player_Bullet">
       <action>
         <libid>1</libid>
@@ -137,16 +176,18 @@ script_execute(state)
 
     audio_play_sound(snd_Thump,5,false)
 
-if (enemyHealth &lt;=0){
-    score += 250
-    instance_change(obj_Explosion1, true)
-
-} else if (enemyHealth &gt; 0){
+   
+if (enemyHealth &gt; 0){
     enemyHealth = enemyHealth - 50
-    with(other){ instance_destroy(obj_Player_Bullet) }
+    instance_destroy(other)
     flash = true
     alarm[1] = 0.2* room_speed
 
+}
+
+if (enemyHealth &lt;=0){
+    score += 250
+    instance_change(obj_Explosion3, true)
 }
 </string>
           </argument>
