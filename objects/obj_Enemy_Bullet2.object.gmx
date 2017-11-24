@@ -31,7 +31,7 @@ if instance_exists(obj_MyPlane){
     tracking = true
     move_towards_point(obj_MyPlane.x,obj_MyPlane.y,EnemyBulletSpeed)
 
-    alarm[1] = 0.5*room_speed
+    alarm[1] = 1*room_speed
     alarm[0] = 3*room_speed
     audio_play_sound(snd_Shoot1,8,false)
     

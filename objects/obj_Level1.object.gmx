@@ -50,7 +50,7 @@
                 y=random_range(16,room_height-512)
             }
             image_xscale = choose(1,-1)
-            image_index=random(7) // select a random mountain from 8
+            image_index=random(5) // select a random mountain from 8
            image_speed=0
              depth = 10000 - 1.1*y // stops things overlapping
         }

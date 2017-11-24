@@ -28,6 +28,7 @@
     <sprite>sprites\spr_Enemy_Bullet</sprite>
     <sprite>sprites\spr_Enemy_Bullet2</sprite>
     <sprite>sprites\spr_Cake1</sprite>
+    <sprite>sprites\spr_MenIcon</sprite>
     <sprite>sprites\spr_Winner1</sprite>
     <sprite>sprites\spr_Loser1</sprite>
     <sprite>sprites\spr_NLevel</sprite>
@@ -35,6 +36,8 @@
     <sprite>sprites\spr_Banner</sprite>
     <sprite>sprites\spr_Keys</sprite>
     <sprite>sprites\spr_Hangry</sprite>
+    <sprite>sprites\spr_Oil</sprite>
+    <sprite>sprites\spr_Ammo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -83,6 +86,8 @@
     <object>objects\obj_Keys</object>
     <object>objects\obj_Hangry</object>
     <object>objects\obj_PStart</object>
+    <object>objects\obj_Oil</object>
+    <object>objects\obj_Ammo</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titlescreen</room>
@@ -99,7 +104,7 @@
     <constant name="EnemyBulletSpeed">5</constant>
     <constant name="HealthDrop">20</constant>
     <constant name="EnemySpeed">1.5</constant>
-    <constant name="ShootDelay">.8</constant>
+    <constant name="ShootDelay">0.4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

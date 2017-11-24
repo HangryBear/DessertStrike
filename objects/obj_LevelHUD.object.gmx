@@ -11,6 +11,50 @@
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
+        <id>526</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_font</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>12</kind>
+            <font>font0</font>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>56319</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>501</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -71,85 +115,33 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>723</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_health</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>12</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0] -21</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>137</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_hport[0] -32</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>526</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_font</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>12</kind>
-            <font>font0</font>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>524</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_color</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>13</kind>
-            <string>56319</string>
+            <kind>1</kind>
+            <string>///Draw health, fuel, ammo, men
+voffset = -35
+draw_healthbar(400, view_hport[0] -100 - voffset, 500, view_hport[0] -85- voffset, health, c_black, c_red, c_green,0,true,true)
+draw_healthbar(400, view_hport[0] -80- voffset, 500, view_hport[0] -65- voffset, global.fuel, c_black, c_red, c_green,0,true,true)
+draw_healthbar(400, view_hport[0] -60- voffset, 425, view_hport[0] -45- voffset, global.ammo, c_black, c_red, c_green,0,true,true)
+
+
+// draw icons for men to be rescued
+for(i = 0; i &lt; global.cakes; i++)
+{
+    draw_sprite(spr_MenIcon, 0, 120 + 16*i, view_hport[0] -60 )
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -169,15 +161,15 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>230</string>
+            <string>40</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>view_hport[0]  - 58</string>
+            <string>view_hport[0]  - 20</string>
           </argument>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>SCORE:  </string>
           </argument>
         </arguments>
       </action>
@@ -197,9 +189,153 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw cake total
-draw_text(275,view_hport[0] -27,global.cakes)
+            <string>/// Draw demo banner
+
+if global.demo {
+    draw_sprite(spr_Banner,0,0,256) 
+}
+
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>DESSERT</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>840</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>view_hport[0] - 56</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>STRIKE</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>840</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>view_hport[0] - 30</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>HEALTH</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>335</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>view_hport[0] -100+35+10</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>FUEL</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>335</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>view_hport[0] -80+35+10</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>514</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_draw_text</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>AMMO</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>335</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>view_hport[0] -60+35+10</string>
           </argument>
         </arguments>
       </action>

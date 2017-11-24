@@ -65,6 +65,11 @@
     <instance objName="obj_MyPlane" x="512" y="3584" name="inst_8FA8D035" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_LevelHUD" x="64" y="32" name="inst_242BCD7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Level1" x="128" y="32" name="inst_D2B2340C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Oil" x="160" y="2912" name="inst_939F9440" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Oil" x="864" y="1856" name="inst_DA7AA8B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Oil" x="288" y="512" name="inst_C1D1CE68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Ammo" x="768" y="1376" name="inst_B3C1DFEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Ammo" x="608" y="2272" name="inst_185781AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

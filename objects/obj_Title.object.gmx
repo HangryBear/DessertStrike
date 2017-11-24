@@ -34,6 +34,9 @@ global.enemyRadar = false // see enemy view rings, for debug only
 global.music = true // music should play
 global.once = false
 global.screenshot = 0 // var to handle screenshot index
+global.demo = false // displays overlay for taking screenshots and videos
+global.ammo = 100 // make more like Desert Strike
+global.fuel = 100 // make more like Desert Strike
 lives = 3
 health = 100
 score = 0
@@ -125,6 +128,41 @@ if (!audio_is_paused(snd_Music1)){
 
     audio_resume_sound(snd_Music1);
      
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Toggle demo banner
+
+if !global.demo {
+
+    global.demo = true
+
+    
+} else {
+
+    global.demo = false
+    
+       
 }
 </string>
           </argument>

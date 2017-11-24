@@ -27,15 +27,43 @@
             <kind>1</kind>
             <string>///Chasing type flying enemy
 // from Heartbeast book but extended
+flash = false
+falling = true
 state_text='idle'
 state=scr_enemy_idle2
 sight_range=500
 attack_range=400
 spd=EnemySpeed*1.2
+enemyHealth=100
 
 // give plane initial speed and direction for random patrol
 speed=EnemySpeed*0.8
 image_angle = direction +90
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>flash = false
+image_alpha=1
+imiage_blend=-1
 </string>
           </argument>
         </arguments>
@@ -91,85 +119,38 @@ script_execute(state)
     <event eventtype="4" ename="obj_Player_Bullet">
       <action>
         <libid>1</libid>
-        <id>202</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_change_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>10</kind>
-            <object>obj_Explosion1</object>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>701</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_score</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>-1</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>100</string>
+            <kind>1</kind>
+            <string>///Deduct health, and play explosion sequence
+
+    audio_play_sound(snd_Thump,5,false)
+
+if (enemyHealth &lt;=0){
+    score += 250
+    instance_change(obj_Explosion1, true)
+
+} else if (enemyHealth &gt; 0){
+    enemyHealth = enemyHealth - 50
+    with(other){ instance_destroy(obj_Player_Bullet) }
+    flash = true
+    alarm[1] = 0.2* room_speed
+
+}
+</string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>snd_Thump</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
@@ -195,8 +176,34 @@ scr_draw_sprite_shadow(225, 24, 1.0, c_black, 0.3)
 
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
+
+if flash &amp;&amp; falling{
+        image_blend = c_white
+    if (image_alpha&gt;0){
+        image_alpha -= 0.2
+
+        }
+    else {
+        falling = false
+    }
+}
+   
+if flash &amp;&amp; !falling{
+        image_blend = c_white
+    if (image_alpha&lt;1){
+        image_alpha += 0.2
+        }
+    else {
+        falling = true
+    }    
+
+}
+
+
+
+
 draw_self()
-//draw_set_alpha(.1)
+
 
 if (global.enemyRadar){
     draw_set_colour(c_black)
