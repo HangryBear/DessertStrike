@@ -29,12 +29,14 @@
 // from Heartbeast book but extended
 state_text='idle'
 state=scr_enemy_idle
-sight_range=400
-attack_range=275
+screen_range=1100
+sight_range=900
+attack_range=300
 spd=EnemySpeed
 
 // give plane initial speed and direction for random patrol
-speed=EnemySpeed*0.75
+//speed=EnemySpeed*0.75
+direction = 270
 image_angle = direction +90
 </string>
           </argument>

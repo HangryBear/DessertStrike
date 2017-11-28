@@ -17,6 +17,7 @@
   <sprites name="sprites">
     <sprite>sprites\spr_Island1</sprite>
     <sprite>sprites\spr_Island2</sprite>
+    <sprite>sprites\spr_Building</sprite>
     <sprite>sprites\spr_MyPlane</sprite>
     <sprite>sprites\spr_Player_Bullet</sprite>
     <sprite>sprites\spr_Player_Bullet1</sprite>
@@ -38,6 +39,8 @@
     <sprite>sprites\spr_Ammo</sprite>
     <sprite>sprites\spr_Health</sprite>
     <sprite>sprites\spr_Powerup</sprite>
+    <sprite>sprites\spr_Tankbody</sprite>
+    <sprite>sprites\spr_Tankturret</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_sand</background>
@@ -47,14 +50,19 @@
     <background>background\background4</background>
     <background>background\bck_bigset1</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path0</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\scr_enemy_idle.gml</script>
     <script>scripts\scr_enemy_idle2.gml</script>
+    <script>scripts\scr_enemy_idle3.gml</script>
     <script>scripts\scr_enemy_chase.gml</script>
     <script>scripts\scr_enemy_chase2.gml</script>
+    <script>scripts\scr_enemy_chase3.gml</script>
     <script>scripts\scr_enemy_attack.gml</script>
     <script>scripts\scr_enemy_attack2.gml</script>
+    <script>scripts\scr_enemy_attack3.gml</script>
     <script>scripts\scr_draw_sprite_shadow.gml</script>
     <script>scripts\scr_gradually_turn.gml</script>
   </scripts>
@@ -76,6 +84,8 @@
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
     <object>objects\obj_Enemy2</object>
+    <object>objects\obj_Building1</object>
+    <object>objects\obj_Enemy3</object>
     <object>objects\obj_Enemy_Bullet1</object>
     <object>objects\obj_Enemy_Bullet2</object>
     <object>objects\obj_Cake1</object>
@@ -90,6 +100,7 @@
     <object>objects\obj_Ammo</object>
     <object>objects\obj_Health</object>
     <object>objects\obj_Powerup</object>
+    <object>objects\obj_Tankbody</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titlescreen</room>
@@ -98,8 +109,11 @@
     <room>rooms\LEVEL_2</room>
     <room>rooms\next_level</room>
     <room>rooms\LEVEL_3</room>
+    <room>rooms\nx_room</room>
+    <room>rooms\LEVEL_4</room>
     <room>rooms\winner_screen</room>
     <room>rooms\loser_screen</room>
+    <room>rooms\TEMPLATE</room>
   </rooms>
   <constants number="8">
     <constant name="CAKES">5</constant>

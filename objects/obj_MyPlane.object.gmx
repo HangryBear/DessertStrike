@@ -301,6 +301,10 @@ image_alpha=1.0
             <kind>1</kind>
             <string>/// Core Player Code
 
+// smooth camera track - doesn't work when we get to the edge - use existing code in create
+//view_xview[0] = lerp(view_xview[0], x-view_wview[0]/2, 0.1);
+//view_yview[0] = lerp(view_yview[0], y-view_hview[0]/2-200, 0.1);
+
 //Consume fuel
 global.fuel-=2/room_speed
 
@@ -331,6 +335,7 @@ if global.cakes = 0 {
 if health &lt;= 0 {
     health = 100
     global.ammo = 100
+    global.fuel = 100
     global.powerup -=1 // lose powerup on death
     lives -= 1
     instance_change(obj_Explosion2,true)
@@ -352,8 +357,7 @@ if (keyboard_check_pressed(ord('R'))){
 }
 
 
-// Surplant with 'nput' scripts from marketplace which handles keyboard/gamepad simultaneously
-
+// add gamepad support
 if keyboard_check(vk_control){
     if can_shoot{
         can_shoot = false

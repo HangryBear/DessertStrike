@@ -30,14 +30,15 @@
 flash = false
 falling = true
 state_text='idle'
+screen_range=1100
 state=scr_enemy_idle2
-sight_range=500
+sight_range=900
 attack_range=400
 spd=EnemySpeed*1.2
 enemyHealth=100
 
 // give plane initial speed and direction for random patrol
-speed=EnemySpeed*0.8
+//speed=EnemySpeed*0.8
 image_angle = direction +90
 </string>
           </argument>
