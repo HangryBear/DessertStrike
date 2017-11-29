@@ -177,29 +177,20 @@ script_execute(state)
           <argument>
             <kind>1</kind>
             <string>///destroy tankbody too
-var inst = instance_position(x, y, obj_Tankbody)
+var inst = instance_position(x, y, obj_Tankbody);
+
+inst.image_speed = 0
+
 
 if inst {
-    with inst instance_destroy();
+    //with inst instance_destroy();
+    inst.image_index = 1 // showed destroyed graphic
 }
 
+instance_destroy(other) // destroy bullet
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="4" ename="obj_Player_Bullet">
@@ -298,23 +289,10 @@ if inst {
     inst.image_index = 1 // showed destroyed graphic
 }
 
+instance_destroy(other) // destroy bullet
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>other</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="8" enumb="0">
