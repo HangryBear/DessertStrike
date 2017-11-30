@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto_next()
+            <string>room_goto_transition(room_next(room),4,60,c_black,true);
 
 </string>
           </argument>

@@ -3,7 +3,29 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <datafiles number="2" name="datafiles">
+    <datafile>
+      <name>Transitions example project.gmz</name>
+      <exists>-1</exists>
+      <size>1004298</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Transitions example project.gmz</filename>
+    </datafile>
+  </datafiles>
+  <NewExtensions>
+    <extension index="0">extensions\Easy Pause</extension>
+    <extension index="1">extensions\Transition System</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sound>sound\snd_Explosion1</sound>
     <sound>sound\snd_Explosion2</sound>
@@ -47,7 +69,6 @@
     <background>background\bck_palm</background>
     <background>background\bck_roads1</background>
     <background>background\bck_water</background>
-    <background>background\background4</background>
     <background>background\bck_bigset1</background>
   </backgrounds>
   <paths name="paths">
@@ -65,6 +86,8 @@
     <script>scripts\scr_enemy_attack3.gml</script>
     <script>scripts\scr_draw_sprite_shadow.gml</script>
     <script>scripts\scr_gradually_turn.gml</script>
+    <script>scripts\room_goto_transition.gml</script>
+    <script>scripts\scr_game_pause.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -80,6 +103,7 @@
     <object>objects\obj_Player_Bullet</object>
     <object>objects\obj_Player_Bullet1</object>
     <object>objects\obj_Explosion1</object>
+    <object>objects\obj_Explosion4</object>
     <object>objects\obj_Explosion3</object>
     <object>objects\obj_Explosion2</object>
     <object>objects\obj_Enemy1</object>
@@ -101,6 +125,9 @@
     <object>objects\obj_Health</object>
     <object>objects\obj_Powerup</object>
     <object>objects\obj_Tankbody</object>
+    <object>objects\sys_pause</object>
+    <object>objects\sys_transition</object>
+    <object>objects\obj_test_controller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titlescreen</room>

@@ -7,7 +7,7 @@
   <coltolerance>0</coltolerance>
   <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>4</bbox_left>
+  <bbox_left>13</bbox_left>
   <bbox_right>329</bbox_right>
   <bbox_top>13</bbox_top>
   <bbox_bottom>258</bbox_bottom>
@@ -17,7 +17,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>340</width>
+  <width>330</width>
   <height>260</height>
   <frames>
     <frame index="0">images\spr_Mtns_0.png</frame>

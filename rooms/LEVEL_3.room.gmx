@@ -91,12 +91,11 @@
     <instance objName="obj_Island3" x="128" y="1376" name="inst_532CAC9C" locked="0" code="image_index = 2&#xA;" scaleX="0.678787887096405" scaleY="0.753846168518066" colour="4294967295" rotation="0"/>
     <instance objName="obj_Enemy2" x="512" y="832" name="inst_BF2A5B46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_Enemy2" x="96" y="288" name="inst_BC95DBC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="432" y="1968" name="inst_B422EE79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="816" y="976" name="inst_D6AEA8DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="400" y="80" name="inst_B913FFBE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="496" y="80" name="inst_CF13AC12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="672" y="304" name="inst_1C315504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Enemy3" x="128" y="96" name="inst_8926CBE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Tankbody" x="432" y="1968" name="inst_327494DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Tankbody" x="816" y="976" name="inst_4DFB15FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Tankbody" x="96" y="96" name="inst_5A45C63C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Tankbody" x="400" y="96" name="inst_D0E79A69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Tankbody" x="624" y="320" name="inst_AB23710F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="384" y="2368" w="16" h="16" xo="0" yo="0" id="10000176" name="inst_CB9207B0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

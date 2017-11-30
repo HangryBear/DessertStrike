@@ -312,6 +312,7 @@ global.fuel-=2/room_speed
 //Lose a life if run out of fuel
 if (global.fuel&lt;=0){
     health = 0 // this will trigger the code block below
+    global.fuel = 50
     // TODO, add different explosion for lack of fuel
 }
 
@@ -328,14 +329,15 @@ if global.cakes = 0 {
     health = 100
     global.ammo = 100
     global.fuel = 100
-    room_goto_next()
+//    room_goto_next()
+    room_goto_transition(room_next(room),4,60,c_black,true);
 }
 
 // Lose a life
 if health &lt;= 0 {
     health = 100
-    global.ammo = 100
-    global.fuel = 100
+if global.ammo == 0{ global.ammo=25}
+
     global.powerup -=1 // lose powerup on death
     lives -= 1
     instance_change(obj_Explosion2,true)
@@ -344,7 +346,8 @@ if health &lt;= 0 {
 // Game over
 if lives &lt;= 0 {
     // TODO add big explosion sequence
-    room_goto(loser_screen)
+//    room_goto(loser_screen)
+    room_goto_transition(loser_screen,0,60,c_red,true);
 }
 
 // Turn on enemy radar display for debugging
@@ -1616,7 +1619,6 @@ if invincible &amp;&amp; !falling{
 }
 
 
-
 /// draw plane shadow
 scr_draw_sprite_shadow(225, 24, 1.0, c_black, 0.3)
 </string>
@@ -1636,6 +1638,31 @@ scr_draw_sprite_shadow(225, 24, 1.0, c_black, 0.3)
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+    </event>
+    <event eventtype="9" enumb="80">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Initiate pause system
+
+script_execute(scr_game_pause)
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>

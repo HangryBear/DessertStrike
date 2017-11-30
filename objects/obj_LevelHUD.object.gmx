@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>flicker = true
+dAlpha=1
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -336,6 +360,159 @@ if global.demo {
           <argument>
             <kind>0</kind>
             <string>view_hport[0] -60+35+10</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Fuel highlight low
+
+if(global.fuel&lt;25){
+    if flicker{
+        if (dAlpha&gt;0.1){
+            dAlpha -=0.1
+            draw_set_alpha(dAlpha)
+            }
+        else {
+            flicker = false
+        }
+    }
+       
+    if !flicker{
+        if (dAlpha&lt;1){
+           dAlpha +=0.1
+            draw_set_alpha(dAlpha)
+     
+            }
+        else {
+            flicker = true
+        }    
+    
+    }
+
+    draw_set_colour(c_red)
+    draw_text(490,view_hport[0] -35 - 200,"LOW FUEL")
+    draw_set_alpha(1)
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Ammo highlight low
+
+if(global.ammo&lt;25){
+    if flicker{
+        if (dAlpha&gt;0.1){
+            dAlpha -=0.1
+            draw_set_alpha(dAlpha)
+            }
+        else {
+            flicker = false
+        }
+    }
+       
+    if !flicker{
+        if (dAlpha&lt;1){
+           dAlpha +=0.1
+            draw_set_alpha(dAlpha)
+     
+            }
+        else {
+            flicker = true
+        }    
+    
+    }
+
+    draw_set_colour(c_red)
+    draw_text(490,view_hport[0] -35 - 150,"LOW AMMO")
+    draw_set_alpha(1)
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Health highlight low
+
+if(health&lt;25){
+    if flicker{
+        if (dAlpha&gt;0.1){
+            dAlpha -=0.1
+            draw_set_alpha(dAlpha)
+            }
+        else {
+            flicker = false
+        }
+    }
+       
+    if !flicker{
+        if (dAlpha&lt;1){
+           dAlpha +=0.1
+            draw_set_alpha(dAlpha)
+     
+            }
+        else {
+            flicker = true
+        }    
+    
+    }
+
+    draw_set_colour(c_red)
+    draw_text(490,view_hport[0] -35 - 100,"LOW HEALTH")
+    draw_set_alpha(1)
+}
+
+
+</string>
           </argument>
         </arguments>
       </action>

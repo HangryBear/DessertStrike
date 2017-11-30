@@ -56,7 +56,7 @@ audio_stop_all()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(titlescreen)
+            <string>room_goto_transition(titlescreen,4,60,c_black,true);
 
 </string>
           </argument>

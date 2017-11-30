@@ -64,7 +64,7 @@ image_angle = direction +90
             <kind>1</kind>
             <string>flash = false
 image_alpha=1
-imiage_blend=-1
+image_blend=-1
 </string>
           </argument>
         </arguments>
